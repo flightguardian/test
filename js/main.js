@@ -24,8 +24,7 @@
     // Update copyright year
     updateCopyrightYear();
     
-    // Log initialization for debugging
-    console.log('Portfolio initialized');
+    // Debug: console.log('Portfolio initialized');
   }
   
   // Initialize when DOM is ready

@@ -399,7 +399,7 @@
       await simulateFormSubmission(formData);
       
       // Success
-      console.log('Form submitted successfully:', formData);
+      // Debug: console.log('Form submitted successfully:', formData);
       showFormMessage('success', '🎉 Thank you for your message! I\'ll get back to you soon.');
       
       // Reset form after short delay
@@ -465,7 +465,7 @@
     // Initial button state
     updateSubmitButton();
     
-    console.log('Contact form initialized');
+    // Debug: console.log('Contact form initialized');
   }
   
   // Initialize when DOM is ready
