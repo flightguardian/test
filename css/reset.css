@@ -1,0 +1,316 @@
+/**
+ * CSS Reset & Normalization
+ * 
+ * Modern CSS reset based on best practices
+ * Provides consistent foundation across browsers
+ */
+
+/* ========================================
+   BOX SIZING
+   ======================================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ========================================
+   REMOVE DEFAULT SPACING
+   ======================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ========================================
+   HTML & BODY
+   ======================================== */
+
+html {
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  /* Set base font size (1rem = 16px) */
+  font-size: 100%;
+  /* Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  /* Base typography */
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
+  
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+  
+  /* Minimum height */
+  min-height: 100vh;
+}
+
+/* ========================================
+   HEADINGS
+   ======================================== */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-3);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+
+h2 {
+  font-size: var(--font-size-3xl);
+}
+
+h3 {
+  font-size: var(--font-size-2xl);
+}
+
+h4 {
+  font-size: var(--font-size-xl);
+}
+
+h5 {
+  font-size: var(--font-size-lg);
+}
+
+h6 {
+  font-size: var(--font-size-base);
+}
+
+/* ========================================
+   TEXT ELEMENTS
+   ======================================== */
+
+p {
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-relaxed);
+}
+
+strong, b {
+  font-weight: var(--font-weight-bold);
+}
+
+em, i {
+  font-style: italic;
+}
+
+small {
+  font-size: var(--font-size-sm);
+}
+
+/* ========================================
+   LINKS
+   ======================================== */
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-in-out);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+a:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ========================================
+   LISTS
+   ======================================== */
+
+ul, ol {
+  list-style: none;
+}
+
+/* ========================================
+   IMAGES & MEDIA
+   ======================================== */
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  /* Prevent image from shrinking */
+  flex-shrink: 0;
+}
+
+/* ========================================
+   FORMS
+   ======================================== */
+
+button, input, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+input, textarea, select {
+  width: 100%;
+}
+
+textarea {
+  resize: vertical;
+}
+
+/* Remove default input styles */
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+/* Remove spinners from number inputs */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* ========================================
+   TABLES
+   ======================================== */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* ========================================
+   ACCESSIBILITY
+   ======================================== */
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Skip to content link */
+.skip-to-content {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  background: var(--color-primary);
+  color: white;
+  padding: var(--spacing-2) var(--spacing-3);
+  z-index: var(--z-tooltip);
+  transition: top var(--duration-fast) var(--ease-in-out);
+}
+
+.skip-to-content:focus {
+  top: 0;
+  outline: 2px solid var(--color-primary-dark);
+}
+
+/* Focus visible (modern alternative to :focus) */
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Remove focus outline when using mouse */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* ========================================
+   REDUCED MOTION
+   Respect user preferences
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  *,
+  *::before,
+  *::after {
+    background: transparent !important;
+    color: #000 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+  
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+  
+  /* Show URL after links */
+  a[href]::after {
+    content: " (" attr(href) ")";
+  }
+  
+  /* Don't show URL for anchor links */
+  a[href^="#"]::after,
+  a[href^="javascript:"]::after {
+    content: "";
+  }
+  
+  img {
+    page-break-inside: avoid;
+  }
+  
+  p, h2, h3 {
+    orphans: 3;
+    widows: 3;
+  }
+  
+  h2, h3 {
+    page-break-after: avoid;
+  }
+}
