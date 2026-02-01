@@ -77,7 +77,7 @@
       observer.observe(element);
     });
     
-    console.log(`Observing ${elements.length} elements for scroll animations`);
+    // Debug: console.log(`Observing ${elements.length} elements for scroll animations`);
   }
   
   // ========================================
@@ -126,7 +126,7 @@
       observeElements(observer);
     }
     
-    console.log('Scroll animations initialized');
+    // Debug: console.log('Scroll animations initialized');
   }
   
   // Initialize when DOM is ready

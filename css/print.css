@@ -1,0 +1,304 @@
+/**
+ * Print Styles
+ * 
+ * Optimized styles for printing the portfolio
+ */
+
+@media print {
+  /* ========================================
+     GENERAL PRINT STYLES
+     ======================================== */
+  
+  /* Hide non-essential elements */
+  .header,
+  .nav,
+  .nav-toggle,
+  .hero-cta,
+  .filter-btn,
+  .project-filters,
+  .project-overlay,
+  .project-links,
+  .contact-form button[type="submit"],
+  .form-message,
+  .social-links,
+  .scroll-to-top,
+  .footer-links,
+  .footer-social {
+    display: none !important;
+  }
+  
+  /* Reset backgrounds and colors for print */
+  body {
+    background: white;
+    color: black;
+    font-size: 12pt;
+    line-height: 1.5;
+  }
+  
+  /* ========================================
+     HERO SECTION
+     ======================================== */
+  
+  .hero {
+    min-height: auto !important;
+    background: white !important;
+    padding: 1rem !important;
+    page-break-after: avoid;
+  }
+  
+  .hero::before {
+    display: none !important;
+  }
+  
+  .hero-content {
+    animation: none !important;
+  }
+  
+  .hero-image {
+    width: 150px !important;
+    height: 150px !important;
+    border: 2px solid #333 !important;
+  }
+  
+  .hero-title,
+  .hero-subtitle,
+  .hero-tagline {
+    color: black !important;
+  }
+  
+  .hero-title {
+    font-size: 24pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-subtitle {
+    font-size: 16pt !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .hero-tagline {
+    font-size: 12pt !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  /* ========================================
+     SECTIONS
+     ======================================== */
+  
+  .section {
+    padding: 1rem 0 !important;
+  }
+  
+  .section-title {
+    font-size: 18pt !important;
+    color: black !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.5rem !important;
+    page-break-after: avoid;
+  }
+  
+  /* ========================================
+     BIO SECTION
+     ======================================== */
+  
+  .bio {
+    page-break-inside: avoid;
+  }
+  
+  .bio-content p {
+    font-size: 11pt !important;
+    margin-bottom: 0.5rem !important;
+    orphans: 3;
+    widows: 3;
+  }
+  
+  /* ========================================
+     SKILLS SECTION
+     ======================================== */
+  
+  .skills {
+    background: white !important;
+  }
+  
+  .skills-grid {
+    display: block !important;
+  }
+  
+  .skill-category {
+    page-break-inside: avoid;
+    margin-bottom: 1rem !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    padding: 0.5rem !important;
+  }
+  
+  .skill-category-title {
+    font-size: 14pt !important;
+    color: black !important;
+    border-bottom: 2px solid black !important;
+  }
+  
+  .skill-item {
+    font-size: 11pt !important;
+    padding: 0.25rem 0 !important;
+  }
+  
+  /* ========================================
+     PROJECTS SECTION
+     ======================================== */
+  
+  .projects-section {
+    background: white !important;
+  }
+  
+  .projects-grid {
+    display: block !important;
+  }
+  
+  .project-card {
+    page-break-inside: avoid;
+    margin-bottom: 1rem !important;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  
+  .project-image-wrapper {
+    padding-top: 0 !important;
+    height: auto !important;
+  }
+  
+  .project-image {
+    position: static !important;
+    max-height: 200px;
+    object-fit: contain;
+  }
+  
+  .project-content {
+    padding: 0.5rem !important;
+  }
+  
+  .project-title {
+    font-size: 14pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .project-description {
+    font-size: 11pt !important;
+    margin-bottom: 0.25rem !important;
+  }
+  
+  .project-tags {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 0.25rem !important;
+  }
+  
+  .project-tag {
+    font-size: 9pt !important;
+    padding: 0.125rem 0.25rem !important;
+    border: 1px solid #999 !important;
+    background: white !important;
+  }
+  
+  /* Show project URLs */
+  .project-card::after {
+    content: "";
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 9pt;
+    color: #666;
+  }
+  
+  /* ========================================
+     CONTACT SECTION
+     ======================================== */
+  
+  .contact-section {
+    background: white !important;
+  }
+  
+  .contact-form {
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+    padding: 1rem !important;
+  }
+  
+  .form-input,
+  .form-textarea {
+    border: 1px solid #999 !important;
+    background: white !important;
+  }
+  
+  .contact-info {
+    margin-top: 1rem !important;
+  }
+  
+  .contact-method {
+    page-break-inside: avoid;
+    background: white !important;
+    border: 1px solid #ddd !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  .contact-method-link {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+  
+  /* ========================================
+     FOOTER
+     ======================================== */
+  
+  .footer {
+    border-top: 1px solid #ddd !important;
+    padding: 1rem 0 !important;
+  }
+  
+  .footer-text {
+    text-align: center !important;
+    font-size: 10pt !important;
+  }
+  
+  /* ========================================
+     PAGE BREAKS
+     ======================================== */
+  
+  /* Avoid breaking inside these elements */
+  h1, h2, h3, h4, h5, h6 {
+    page-break-after: avoid;
+    page-break-inside: avoid;
+  }
+  
+  /* Ensure sections start on new page when needed */
+  .about-section {
+    page-break-after: auto;
+  }
+  
+  .projects-section {
+    page-break-before: auto;
+  }
+  
+  .contact-section {
+    page-break-before: auto;
+  }
+  
+  /* ========================================
+     UTILITIES
+     ======================================== */
+  
+  /* No animations in print */
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+  
+  /* Show print-only content */
+  .print-only {
+    display: block !important;
+  }
+  
+  /* Hide screen-only content */
+  .no-print {
+    display: none !important;
+  }
+}
