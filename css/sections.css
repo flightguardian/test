@@ -5,6 +5,532 @@
  */
 
 /* ========================================
+   ABOUT SECTION
+   ======================================== */
+
+.about-section {
+  background-color: var(--color-bg-primary);
+}
+
+/* ========================================
+   HERO AREA
+   ======================================== */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-10) var(--spacing-2);
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    var(--color-secondary) 100%
+  );
+  overflow: hidden;
+}
+
+/* Optional: Add subtle pattern overlay */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  animation: fadeInUp 1s var(--ease-out);
+}
+
+/* Hero image */
+.hero-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 6px solid rgba(255, 255, 255, 0.3);
+  box-shadow: var(--shadow-xl);
+  object-fit: cover;
+  margin: 0 auto var(--spacing-4);
+  display: block;
+  animation: fadeIn 1s var(--ease-out) 0.2s backwards;
+}
+
+/* Hero title (name) */
+.hero-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: white;
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-tight);
+  animation: fadeIn 1s var(--ease-out) 0.4s backwards;
+}
+
+/* Hero subtitle (role) */
+.hero-subtitle {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-medium);
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: var(--spacing-3);
+  animation: fadeIn 1s var(--ease-out) 0.6s backwards;
+}
+
+/* Hero tagline */
+.hero-tagline {
+  font-size: var(--font-size-lg);
+  color: rgba(255, 255, 255, 0.85);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-6);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 1s var(--ease-out) 0.8s backwards;
+}
+
+/* Hero CTA buttons */
+.hero-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-3);
+  justify-content: center;
+  animation: fadeIn 1s var(--ease-out) 1s backwards;
+}
+
+.hero-cta .btn {
+  box-shadow: var(--shadow-lg);
+}
+
+.hero-cta .btn-primary {
+  background-color: white;
+  color: var(--color-primary);
+  border-color: white;
+}
+
+.hero-cta .btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+.hero-cta .btn-secondary {
+  background-color: transparent;
+  color: white;
+  border-color: white;
+}
+
+.hero-cta .btn-secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ========================================
+   BIO SECTION
+   ======================================== */
+
+.bio {
+  padding: var(--spacing-10) var(--spacing-2);
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+.bio .section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.bio-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.bio-content p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-4);
+}
+
+.bio-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* ========================================
+   SKILLS SHOWCASE
+   ======================================== */
+
+.skills {
+  padding: var(--spacing-10) var(--spacing-2);
+  background-color: var(--color-bg-secondary);
+}
+
+.skills .section-title {
+  text-align: center;
+  margin-bottom: var(--spacing-6);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  max-width: var(--container-lg);
+  margin: 0 auto;
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Desktop: 4 columns */
+@media (min-width: 1024px) {
+  .skills-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Skill category card */
+.skill-category {
+  background-color: var(--color-bg-primary);
+  padding: var(--spacing-5);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+}
+
+.skill-category:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.skill-category-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  margin-bottom: var(--spacing-3);
+  padding-bottom: var(--spacing-2);
+  border-bottom: 2px solid var(--color-primary);
+}
+
+.skill-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.skill-item {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  padding: var(--spacing-2) 0;
+  padding-left: var(--spacing-3);
+  position: relative;
+  line-height: var(--line-height-relaxed);
+}
+
+/* Add checkmark icon before each skill */
+.skill-item::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: var(--font-weight-bold);
+}
+
+/* ========================================
+   ABOUT FOOTER (Social Links & Resume)
+   ======================================== */
+
+.about-footer {
+  padding: var(--spacing-10) var(--spacing-2);
+  max-width: var(--container-lg);
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Social links */
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-3);
+  margin-bottom: var(--spacing-6);
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-bg-secondary);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-secondary);
+  transition: var(--transition);
+  text-decoration: none;
+}
+
+.social-link:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: var(--shadow-lg);
+}
+
+.social-link:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.social-icon {
+  width: 24px;
+  height: 24px;
+  fill: currentColor;
+}
+
+/* Screen reader only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Download resume button */
+.about-footer .btn-outline {
+  display: inline-flex;
+  gap: var(--spacing-2);
+}
+
+/* ========================================
+   ANIMATIONS
+   ======================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll-triggered animations (will be added by JS) */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.6s var(--ease-out),
+              transform 0.6s var(--ease-out);
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger animation delays for multiple items */
+.animate-on-scroll:nth-child(1) {
+  transition-delay: 0s;
+}
+
+.animate-on-scroll:nth-child(2) {
+  transition-delay: 0.1s;
+}
+
+.animate-on-scroll:nth-child(3) {
+  transition-delay: 0.2s;
+}
+
+.animate-on-scroll:nth-child(4) {
+  transition-delay: 0.3s;
+}
+
+/* ========================================
+   REDUCED MOTION SUPPORT
+   ======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-content,
+  .hero-image,
+  .hero-title,
+  .hero-subtitle,
+  .hero-tagline,
+  .hero-cta,
+  .animate-on-scroll {
+    animation: none;
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+  
+  .skill-category:hover,
+  .social-link:hover,
+  .hero-cta .btn:hover {
+    transform: none;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS - ABOUT SECTION
+   ======================================== */
+
+/* Mobile optimizations */
+@media (max-width: 767px) {
+  .hero {
+    min-height: 90vh;
+    padding: var(--spacing-8) var(--spacing-2);
+  }
+  
+  .hero-image {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .hero-tagline {
+    font-size: var(--font-size-base);
+  }
+  
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .hero-cta .btn {
+    width: 100%;
+  }
+  
+  .bio {
+    padding: var(--spacing-7) var(--spacing-2);
+  }
+  
+  .bio-content p {
+    font-size: var(--font-size-base);
+  }
+  
+  .skills {
+    padding: var(--spacing-7) var(--spacing-2);
+  }
+  
+  .about-footer {
+    padding: var(--spacing-7) var(--spacing-2);
+  }
+}
+
+/* Tablet */
+@media (min-width: 768px) {
+  .hero-image {
+    width: 180px;
+    height: 180px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-size-5xl);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .hero-image {
+    width: 200px;
+    height: 200px;
+    border-width: 8px;
+  }
+  
+  .bio-content p {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* ========================================
+   PRINT STYLES - ABOUT SECTION
+   ======================================== */
+
+@media print {
+  .hero {
+    min-height: auto;
+    background: white;
+    padding: var(--spacing-4);
+  }
+  
+  .hero::before {
+    display: none;
+  }
+  
+  .hero-content {
+    animation: none;
+  }
+  
+  .hero-title,
+  .hero-subtitle,
+  .hero-tagline {
+    color: var(--color-text-primary);
+  }
+  
+  .hero-cta {
+    display: none;
+  }
+  
+  .skill-category {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--color-border);
+  }
+  
+  .social-links {
+    display: none;
+  }
+  
+  .about-footer .btn-outline {
+    display: none;
+  }
+}
+
+/* ========================================
    PROJECTS SECTION
    ======================================== */
 
