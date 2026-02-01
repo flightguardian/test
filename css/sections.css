@@ -1,0 +1,370 @@
+/**
+ * Section-Specific Styles
+ * 
+ * Styles for About, Projects, and Contact sections
+ */
+
+/* ========================================
+   PROJECTS SECTION
+   ======================================== */
+
+.projects-section {
+  background-color: var(--color-bg-secondary);
+}
+
+.section-title {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-3);
+}
+
+.section-intro {
+  text-align: center;
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: var(--spacing-6);
+}
+
+/* ========================================
+   PROJECT FILTERS
+   ======================================== */
+
+.project-filters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-2);
+  margin-bottom: var(--spacing-6);
+}
+
+.filter-btn {
+  padding: var(--spacing-2) var(--spacing-4);
+  background-color: var(--color-bg-primary);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-full);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  /* Minimum touch target */
+  min-height: 44px;
+  min-width: 44px;
+}
+
+.filter-btn:hover {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background-color: var(--color-neutral-50);
+}
+
+.filter-btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.filter-btn.active {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: white;
+}
+
+.filter-btn.active:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+}
+
+/* ========================================
+   PROJECTS GRID
+   ======================================== */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-6);
+  margin-top: var(--spacing-6);
+}
+
+/* Tablet: 2 columns */
+@media (min-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-6);
+  }
+}
+
+/* Desktop: 3 columns */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-7);
+  }
+}
+
+/* ========================================
+   PROJECT CARD
+   ======================================== */
+
+.project-card {
+  background-color: var(--color-bg-primary);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ========================================
+   PROJECT IMAGE
+   ======================================== */
+
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 aspect ratio */
+  overflow: hidden;
+  background-color: var(--color-neutral-200);
+}
+
+.project-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--ease-in-out);
+}
+
+.project-card:hover .project-image {
+  transform: scale(1.05);
+}
+
+/* ========================================
+   PROJECT OVERLAY
+   ======================================== */
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.7) 100%
+  );
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: var(--spacing-4);
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--ease-in-out);
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-links {
+  display: flex;
+  gap: var(--spacing-2);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2) var(--spacing-3);
+  background-color: white;
+  color: var(--color-primary);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  /* Minimum touch target */
+  min-height: 44px;
+}
+
+.project-link:hover {
+  background-color: var(--color-primary);
+  color: white;
+  transform: scale(1.05);
+}
+
+.project-link:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* ========================================
+   PROJECT CONTENT
+   ======================================== */
+
+.project-content {
+  padding: var(--spacing-4);
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-2);
+  line-height: var(--line-height-tight);
+}
+
+.project-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--spacing-3);
+  flex-grow: 1;
+}
+
+/* ========================================
+   PROJECT TAGS
+   ======================================== */
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-1);
+  margin-top: auto;
+}
+
+.project-tag {
+  display: inline-block;
+  padding: var(--spacing-1) var(--spacing-2);
+  background-color: var(--color-neutral-100);
+  color: var(--color-text-muted);
+  border-radius: var(--radius);
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  line-height: 1;
+}
+
+/* ========================================
+   PROJECT CARD ANIMATIONS
+   ======================================== */
+
+.project-card {
+  animation: fadeIn var(--duration-slow) var(--ease-in-out);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hide/show projects with fade effect */
+.project-card.hidden {
+  display: none;
+}
+
+.project-card.fade-out {
+  animation: fadeOut var(--duration-normal) var(--ease-in-out);
+}
+
+.project-card.fade-in {
+  animation: fadeIn var(--duration-normal) var(--ease-in-out);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+}
+
+/* ========================================
+   EMPTY STATE
+   ======================================== */
+
+.projects-empty {
+  text-align: center;
+  padding: var(--spacing-10) var(--spacing-4);
+  color: var(--color-text-muted);
+}
+
+.projects-empty p {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-2);
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  .project-content {
+    padding: var(--spacing-5);
+  }
+  
+  .project-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .section-title {
+    font-size: var(--font-size-4xl);
+  }
+  
+  .section-intro {
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* ========================================
+   PRINT STYLES
+   ======================================== */
+
+@media print {
+  .project-filters {
+    display: none;
+  }
+  
+  .project-overlay {
+    display: none;
+  }
+  
+  .projects-grid {
+    display: block;
+  }
+  
+  .project-card {
+    page-break-inside: avoid;
+    margin-bottom: var(--spacing-4);
+    box-shadow: none;
+    border: 1px solid var(--color-border);
+  }
+}
