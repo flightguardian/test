@@ -36,7 +36,7 @@
    Section-specific styles (added in Wave 2)
    ======================================== */
 
-/* @import 'sections.css'; */
+@import 'sections.css';
 
 /* ========================================
    UTILITY CLASSES
